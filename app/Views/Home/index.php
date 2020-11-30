@@ -1,7 +1,9 @@
-<?= $this->extend("layouts/defaul") ?>
-<?=$this ->section("content") ?>
+<?= $this->extend("layout/default") ?>
+
+<?=$this->section("title") ?>Home<?= $this ->endSection() ?>
+
+<?=$this ->section("content")?>  <h1>Welcome</h1><?= $this ->endSection() ?>
 
 
-  <h1>Welcome Traveller</h1>
 
-<?= $this ->endSection() ?>
+

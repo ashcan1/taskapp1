@@ -5,10 +5,11 @@
 <head>
 
 
-  <title>Tasks</title>
+  <title>  <?= $this->renderSection("title") ?>
+</title>
 </head>
 <body>
-<? = $this ->renderSection("content") ?>
+   <?= $this->renderSection("content") ?>
 
 </body>
 </html>
