@@ -1,8 +1,6 @@
-
 <?php
- namespace App\Models;
-
+namespace App\Models;
 class TaskModel extends \CodeIgniter\Model
 {
-    protected $table = 'task';
+  protected $table = 'task';
 }

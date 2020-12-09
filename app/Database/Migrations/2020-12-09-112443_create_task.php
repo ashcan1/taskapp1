@@ -1,12 +1,10 @@
-<?php
-
-namespace App\Database\Migrations;
+<?php namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class AddTimestampsToTask extends Migration
+class CreateTask extends Migration
 {
-    public function up()
+  public function up()
   {
     $this->forge->addField([
       'id' => [
@@ -18,13 +16,18 @@ class AddTimestampsToTask extends Migration
       'description' => [
         'type'           => 'VARCHAR',
         'constraint'     => '128',
-            ]
-        ]);
-    }
+      ]
+    ]);
 
-    public function down()
+    $this->forge->addPrimaryKey('id');
+    $this->forge->createTable('task');
+  }
+
+  //--------------------------------------------------------------------
+
+  public function down()
   {
-        $this->forge->dropColumn('task', 'updated_at');
-        $this->forge->dropColumn('task', 'created_at');
-    }
+    $this->forge->dropTable('task');
+  }
 }
+
