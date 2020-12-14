@@ -1,15 +1,10 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-
-
-  <title>  <?= $this->renderSection("title") ?>
-</title>
+    <meta charset="UTF-8">
+    <title><?= $this->renderSection("title")?></title>
 </head>
 <body>
-   <?= $this->renderSection("content") ?>
-
+ <?= $this->renderSection("content")?>
 </body>
 </html>
