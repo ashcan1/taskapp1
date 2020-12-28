@@ -1,23 +1,33 @@
-<?= $this->extend("layout/default")?>
+<?= $this->extend("layout/default") ?>
 
-<?=$this->section("title") ?>Tasks<?= $this ->endSection() ?>
+<?= $this->section("title") ?>Tasks<?= $this->endSection() ?>
 
-<?=$this ->section("content")?>
-<h1>Tasks</h1>
+<?= $this->section("content") ?>
 
-<a href="<?= site_url ("/tasks/new") ?>">New task</a>
-    <ul>
-        <?php foreach($tasks as $task): ?>
+    <h1>Tasks</h1>
 
-            <li>
-                <a href="<?= site_url("/tasks/show/" .$task['id']) ?>">
-                <?= $task['description'] ?>
-              </a>
+    <a href="<?= site_url("/tasks/new") ?>">New task</a>
 
-            </li>
+    <?php if ($tasks): ?>
 
-        <?php endforeach; ?>
-    </ul>
-<?= $this ->endSection() ?>
+        <ul>
+            <?php foreach($tasks as $task): ?>
 
+                <li>
+                    <a href="<?= site_url("/tasks/show/" . $task->id) ?>">
+                        <?= esc($task->description) ?>
+                    </a>
+                </li>
 
+            <?php endforeach; ?>
+        </ul>
+
+        <?= $pager->simpleLinks() ?>
+
+    <?php else: ?>
+
+        <p>No tasks found.</p>
+
+    <?php endif; ?>
+
+<?= $this->endSection() ?>

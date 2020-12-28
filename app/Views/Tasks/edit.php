@@ -1,10 +1,10 @@
 <?= $this->extend('layout/default') ?>
 
-<?= $this->section('title') ?>New task<?= $this->endSection() ?>
+<?= $this->section('title') ?>Edit task<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 
-<h1>New task</h1>
+<h1>Edit task</h1>
 <?php if (session()->has('errors')): ?>
     <ul>
         <?php foreach(session('errors') as $error): ?>
@@ -13,11 +13,12 @@
     </ul>
 <?php endif ?>
 
-<?= form_open("/tasks/create") ?>
+<?= form_open("/tasks/update/" . $task->id) ?>
 
-  <?= $this ->include('Tasks/form') ?>
+    <?= $this ->include('Tasks/form') ?>
+
     <button>Save</button>
-    <a href="<?= site_url("/tasks") ?>">Cancel</a>
+    <a href="<?= site_url("/tasks/show/" . $task->id )?>">Cancel</a>
 
 </form>
 

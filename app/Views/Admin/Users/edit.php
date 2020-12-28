@@ -1,10 +1,11 @@
 <?= $this->extend('layout/default') ?>
 
-<?= $this->section('title') ?>New task<?= $this->endSection() ?>
+<?= $this->section('title') ?>Edit user<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 
-<h1>New task</h1>
+<h1>Edit user</h1>
+
 <?php if (session()->has('errors')): ?>
     <ul>
         <?php foreach(session('errors') as $error): ?>
@@ -13,11 +14,12 @@
     </ul>
 <?php endif ?>
 
-<?= form_open("/tasks/create") ?>
+<?= form_open("/admin/users/update/" . $user->id) ?>
 
-  <?= $this ->include('Tasks/form') ?>
+    <?= $this->include('Admin/Users/form') ?>
+
     <button>Save</button>
-    <a href="<?= site_url("/tasks") ?>">Cancel</a>
+    <a href="<?= site_url("/admin/users/show/" . $user->id) ?>">Cancel</a>
 
 </form>
 
