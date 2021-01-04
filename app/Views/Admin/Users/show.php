@@ -15,6 +15,12 @@
     <dt>email</dt>
     <dd><?= esc($user->email) ?></dd>
 
+    <dt>Active</dt>
+    <dd><?= $user->is_active ? 'yes' : 'no' ?></dd>
+
+    <dt>Administrator</dt>
+    <dd><?= $user->is_admin ? 'yes' : 'no' ?></dd>
+
     <dt>Created at</dt>
     <dd><?= $user->created_at ?></dd>
 
@@ -23,6 +29,11 @@
 </dl>
 
 <a href="<?= site_url('/admin/users/edit/' . $user->id) ?>">Edit</a>
-<a href="<?= site_url('/admin/users/delete/' . $user->id) ?>">Delete</a>
+
+<?php if ($user->id != current_user()->id): ?>
+
+    <a href="<?= site_url('/admin/users/delete/' . $user->id) ?>">Delete</a>
+
+<?php endif; ?>
 
 <?= $this->endSection() ?>

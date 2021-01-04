@@ -11,7 +11,7 @@ class Home extends BaseController
   {
         $email = service('email');
 
-        $email->setTo('recipient@example.com');
+        $email->setTo('ashki445@gmail.com');
 
         $email->setSubject('A test email');
 
