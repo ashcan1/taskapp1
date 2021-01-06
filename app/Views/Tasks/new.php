@@ -4,7 +4,8 @@
 
 <?= $this->section('content') ?>
 
-<h1>New task</h1>
+<h1 class="title">New task</h1>
+
 <?php if (session()->has('errors')): ?>
     <ul>
         <?php foreach(session('errors') as $error): ?>
@@ -13,12 +14,24 @@
     </ul>
 <?php endif ?>
 
-<?= form_open("/tasks/create") ?>
+<div class="container">
 
-  <?= $this ->include('Tasks/form') ?>
-    <button>Save</button>
-    <a href="<?= site_url("/tasks") ?>">Cancel</a>
+    <?= form_open("/tasks/create") ?>
 
-</form>
+        <?= $this->include('Tasks/form') ?>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary">Save</button>
+            </div>
+
+            <div class="control">
+                <a class="button" href="<?= site_url("/tasks") ?>">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+
+</div>
 
 <?= $this->endSection() ?>

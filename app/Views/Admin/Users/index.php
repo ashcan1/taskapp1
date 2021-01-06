@@ -4,13 +4,13 @@
 
 <?= $this->section("content") ?>
 
-    <h1>Users</h1>
+    <h1 class="title">Users</h1>
 
-    <a href="<?= site_url("/admin/users/new") ?>">New user</a>
+    <a class="button" href="<?= site_url("/admin/users/new") ?>">New user</a>
 
     <?php if ($users): ?>
 
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -48,5 +48,3 @@
     <?php endif; ?>
 
 <?= $this->endSection() ?>
-
-

@@ -1,20 +1,32 @@
 <?= $this->extend('layout/default') ?>
 
-<?= $this->section('title') ?>Forgot password<?= $this->endSection() ?>
+<?= $this->section('title') ?>Task<?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
 
-<h1>Forgot password</h1>
+<h1 class="title">Task</h1>
 
-<?= form_open("/password/processforgot") ?>
+<a href="<?= site_url("/tasks") ?>">&laquo; back to index</a>
 
-    <div>
-        <label for="email">email</label>
-        <input type="text" name="email" id="email" value="<?= old('email') ?>">
-    </div>
+<div class="content">
 
-    <button>Send</button>
+    <dl>
+        <dt class="has-text-weight-bold">ID</dt>
+        <dd><?= $task->id ?></dd>
 
-</form>
+        <dt class="has-text-weight-bold">Description</dt>
+        <dd><?= esc($task->description) ?></dd>
+
+        <dt class="has-text-weight-bold">Created at</dt>
+        <dd><?= $task->created_at->humanize() ?></dd>
+
+        <dt class="has-text-weight-bold">Updated at</dt>
+        <dd><?= $task->updated_at->humanize() ?></dd>
+    </dl>
+
+</div>
+
+<a class="button is-link" href="<?= site_url('/tasks/edit/' . $task->id) ?>">Edit</a>
+<a class="button is-link" href="<?= site_url('/tasks/delete/' . $task->id) ?>">Delete</a>
 
 <?= $this->endSection() ?>
