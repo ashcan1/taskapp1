@@ -134,5 +134,3 @@ class Profile extends BaseController
         }
     }
 }
-
-
