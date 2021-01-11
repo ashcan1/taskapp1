@@ -23,7 +23,7 @@ class Database extends \CodeIgniter\Database\Config
 	 * @var string
 	 */
 	public $defaultGroup = 'default';
-  $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
 
 	/**
 	 * The default database connection.
